@@ -55,11 +55,10 @@ namespace MultithreadingIssuesDemoTests
 
             var readThread = new Thread(() =>
             {
-                do
+                while (queue.Count > 0)
                 {
                     queue.Dequeue();
-                }
-                while (queue.Count > 0);
+                };
             });
 
             appendThread.Start();
